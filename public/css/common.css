@@ -1,0 +1,10 @@
+
+.breadcrumb {
+    font-size: 0.75rem;
+    padding: .2rem;
+    background: none;
+  }
+
+  .breadcrumb li.active:last-child a {
+    color: #6c757d !important;
+  }
