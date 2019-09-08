@@ -6,7 +6,6 @@ namespace App\Renderers;
 
 use Psr\Container\ContainerInterface;
 use Slim\Interfaces\ErrorRendererInterface;
-use Slim\Views\Twig;
 
 class HtmlErrorRenderer implements ErrorRendererInterface
 {
@@ -14,11 +13,7 @@ class HtmlErrorRenderer implements ErrorRendererInterface
 
     public function __construct(ContainerInterface $container)
     {
-        $settings = $container->get('settings');
-        $this->view = new Twig(
-            $settings['view']['template_path'],
-            $settings['view']['twig']
-        );
+        $this->view = $container->get('view');
     }
 
     public function __invoke(\Throwable $exception, bool $displayErrorDetails): string
