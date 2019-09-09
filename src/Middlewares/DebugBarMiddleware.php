@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * The MIT License (MIT)
+ *
+ * Original Work: Copyright (c) 2018 Middlewares
+ */
+
 declare(strict_types=1);
 
 namespace App\Middlewares;

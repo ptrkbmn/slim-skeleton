@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * The MIT License (MIT)
+ *
+ * Original Work: Copyright (c) 2015 vhchung
+ */
+
 declare(strict_types=1);
 
 namespace App\Renderers;
