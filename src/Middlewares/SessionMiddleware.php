@@ -1,10 +1,8 @@
 <?php
 
 /**
- * The MIT License (MIT)
- *
- * Original Work: Copyright (c) Josh Lockhart and Pierre Berube
- * Original Work: Copyright (c) 2015 vhchung
+ * Copyright (c) Josh Lockhart and Pierre Berube
+ * Copyright (c) 2015 vhchung
  */
 
 declare(strict_types=1);
