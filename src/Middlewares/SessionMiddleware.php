@@ -1,14 +1,10 @@
 <?php
 
-/**
- * Copyright (c) Josh Lockhart and Pierre Berube
- * Copyright (c) 2015 vhchung
- */
-
 declare(strict_types=1);
 
 namespace App\Middlewares;
 
+use App\Entities\User;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Server\MiddlewareInterface as Middleware;
@@ -30,10 +26,9 @@ class SessionMiddleware implements Middleware, ArrayAccess
      */
     public function process(Request $request, RequestHandler $handler): Response
     {
-        if (!isset($this->storage['logged'])) {
-            $this->storage['logged'] = false;
+        if (!isset($this->storage['signedin'])) {
+            $this->storage['signedin'] = false;
         }
-
         $request = $request->withAttribute('session', $this);
         return $handler->handle($request);
     }

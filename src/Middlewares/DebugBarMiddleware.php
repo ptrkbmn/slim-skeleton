@@ -1,9 +1,5 @@
 <?php
 
-/**
- * Copyright (c) 2018 Middlewares
- */
-
 declare(strict_types=1);
 
 namespace App\Middlewares;
@@ -40,6 +36,12 @@ class DebugBarMiddleware implements MiddlewareInterface
     private $inline = false;
 
     /**
+     * @var bool Whether dump the css/js code in the public folder
+     */
+    private $cssJsInPublicFolder = false;
+    private $publicFolderPath = null;
+
+    /**
      * Set the debug bar.
      */
     public function __construct(Bar $debugbar = null)
@@ -62,6 +64,16 @@ class DebugBarMiddleware implements MiddlewareInterface
     public function inline(bool $inline = true): self
     {
         $this->inline = $inline;
+        return $this;
+    }
+
+    /**
+     * Configure whether the js/css code should be inserted inline in the html.
+     */
+    public function cssJsInPublicFolder(bool $cssJsInPublicFolder = true, string $path = null): self
+    {
+        $this->cssJsInPublicFolder = $cssJsInPublicFolder;
+        $this->publicFolderPath = $path;
         return $this;
     }
 
@@ -147,7 +159,25 @@ class DebugBarMiddleware implements MiddlewareInterface
 
         $scriptBody = "";
         if (!$isAjax) {
-            if ($this->inline) {
+            if ($this->cssJsInPublicFolder && $this->publicFolderPath) {
+                $debugbarCss = $this->publicFolderPath . DIRECTORY_SEPARATOR . "debugbar.css";
+                if (!file_exists($debugbarCss)) {
+                    ob_start();
+                    $renderer->dumpCssAssets();
+                    $css = ob_get_clean();
+                    file_put_contents($debugbarCss, $css);
+                }
+                $code = '<link rel="stylesheet" href="/debugbar.css">';
+
+                $debugbarJs = $this->publicFolderPath . DIRECTORY_SEPARATOR . "debugbar.js";
+                if (!file_exists($debugbarJs)) {
+                    ob_start();
+                    $renderer->dumpJsAssets();
+                    $js = ob_get_clean();
+                    file_put_contents($debugbarJs, $js);
+                }
+                $scriptBody = '<script src="/debugbar.js"></script>';
+            } else if ($this->inline) {
                 ob_start();
                 echo "<style>\n";
                 $renderer->dumpCssAssets();

@@ -1,0 +1,34 @@
+/*
+
+*/
+
+footer.container {
+  margin-top: 1rem;
+}
+
+/* BREADCRUMB */
+
+.breadcrumb {
+  font-size: 0.75rem;
+  padding: .2rem;
+  background: none;
+
+  li.active:last-child a {
+    color: #6c757d !important;
+  }
+}
+
+.col-hash {
+  letter-spacing: 4px;
+}
+
+/* ACTIONS */
+th.actions,
+td.actions {
+  width: 200px;
+  text-align: right;
+
+  > a {
+    margin-right: .5rem;
+  }
+}

@@ -5,6 +5,9 @@ use Doctrine\ORM\Tools\Console\ConsoleRunner;
 
 require 'vendor/autoload.php';
 
+// Set the absolute path to the root directory.
+define("ROOT_PATH", realpath(__DIR__ . '/..'));
+
 // Instantiate PHP-DI ContainerBuilder
 $containerBuilder = new ContainerBuilder();
 $settings = require('config/settings.php');

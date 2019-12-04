@@ -1,0 +1,129 @@
+
+html, body {
+  font-family: "Droid Sans", Arial, Helvetica, sans-serif;
+  font-size: 12pt;
+}
+
+/* BASIC RULES */
+
+h1 { font-size: 20pt; }
+h2 { font-size: 16pt; margin-bottom: 1rem; }
+h3 { font-size: 14pt; margin-bottom: 1rem; }
+h4 { font-size: 13pt; margin-bottom: 1rem; }
+h5 { font-size: 12pt; }
+h6 { font-size: 12pt; }
+
+/* h1, h2, h3, h4, h5, h6 {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 6px;
+} */
+
+/* Layout */
+
+form,
+.form {
+  display: grid;
+  margin-top: 1rem;
+  row-gap: .5rem;
+  column-gap: 1rem;
+
+  > * {
+    grid-column: 1 / span 4;
+  }
+
+  label {
+    grid-column: 1;
+    margin-top: .375rem;
+  }
+
+  div {
+    grid-column: 2 / span 3;
+
+    input[type="checkbox"] {
+      margin-top: .675rem;
+    }
+  }
+}
+
+/* Navbar */
+
+a.navbar-brand {
+  position: relative;
+}
+
+/* Breadcrumb */
+
+.breadcrumb {
+  font-size: 0.75rem;
+  padding: .2rem;
+  background: none;
+}
+
+.breadcrumb li.active:last-child a {
+  color: #6c757d !important;
+}
+
+/* TABLES */
+
+.table-centered td,
+.table-centered th {
+  text-align: center;
+}
+.table-centered td:first-child,
+.table-centered th:first-child { text-align: left; }
+
+table .cell-left { text-align: left; }
+table .cell-right { text-align: right; }
+
+/* CONTENT */
+
+div.content {
+  position: relative;
+}
+
+div.toolbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* BUTTON */
+.btn.add {
+  border-radius: 50%;
+}
+
+/* MISC */
+
+.info-box {
+  margin-bottom: 1rem;
+}
+
+.fade-color {
+  color: #9c9c9c;
+}
+
+/* HELPERS */
+.not-selected {
+  color: grey;
+}
+
+.monospace {
+  font-family: monospace !important;
+}
+
+/* Form changes */
+
+.invalid-feedback {
+  font-weight: bold;
+}
+
+.input-group-append :last-child {
+  border-top-right-radius: .25rem !important;
+  border-bottom-right-radius: .25rem !important;
+}
+
+/* Icon button */
+
+input.search {
+  width: 160px !important;
+}

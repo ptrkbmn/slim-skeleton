@@ -1,0 +1,14 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/*
+    Created on : 05.02.2017, 13:39:21
+    Author     : Patrick
+*/
+
+/* Debugbar: Queries-Tab ausblenden */
+a.phpdebugbar-tab:nth-child(6) {
+  display: none;
+}

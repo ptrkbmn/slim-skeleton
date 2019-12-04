@@ -1,7 +1,11 @@
-<footer class="container mt-4">
-    <div class="d-flex justify-content-between">
-        <p>[...] &copy; {{ TODAY|date('Y') }} [...] &middot;
-            <a href="#">Footer link</a>
-        </p>
+<footer class="container py-5">
+  <div class="row">
+    <div class="col-12">
+      <small class="text-muted">
+        Slim Skeleton &copy; {{ TODAY|date('Y') }} &middot;
+        <a class="text-muted" href="#">{{ "Privacy"|trans }}</a> &middot;
+        <a class="text-muted" href="#">{{ "Site Notice"|trans  }}</a>
+      </small>
     </div>
+  </div>
 </footer>

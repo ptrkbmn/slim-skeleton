@@ -1,7 +1,19 @@
 {% extends 'base/public.twig' %}
 
-{% block contents %}
-<p>
-    Home page
-</p>
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('home') }}css/home.css">
+{% endblock %}
+
+{% block container %}
+<div class="container home-container mt-1">
+    {% include "base/include/flash.twig" %}
+    <div class="position-relative overflow-hidden px-2 p-sm-5 p-md-5 mt-2 text-center bg-light">
+        <div class="mx-auto px-md-5 my-5">
+            <h1 class="display-4 font-weight-normal">Slim Skeleton</h1>
+            <p class="lead font-weight-normal">
+                {{ "A simple Slim skeleton with basic user management."|trans }}
+            </p>
+        </div>
+    </div>
+</div>
 {% endblock %}

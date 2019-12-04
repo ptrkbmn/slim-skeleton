@@ -1,0 +1,17 @@
+{% extends 'base/base.twig' %}
+
+{% set template_name = "admin" %}
+
+{% block breadcrumb %}
+<li class="breadcrumb-item">
+  <a href="{{ url_for('admin') }}">{{ "Administration"|trans }}</a>
+</li>
+{% endblock %}
+
+{% block navbar %}
+{% include "base/include/nav_admin.twig" %}
+{% endblock %}
+
+{% block js_template %}
+<script src="{{ url_for('home') }}js/admin.js"></script>
+{% endblock %}

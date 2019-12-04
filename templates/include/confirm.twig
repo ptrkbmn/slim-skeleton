@@ -1,0 +1,8 @@
+<p>{{ text|raw }}</p>
+<p>{{ "This action cannot be undone!" }}</p>
+<a href="{{ current_url() }}?force" class="btn btn-warning">
+    {{ "Yes, I am sure!"|trans }}
+</a>
+<a href="{{ URLHelper.cancel() }}" class="btn btn-light">
+    {{ "No, I changed my mind"|trans }}
+</a>

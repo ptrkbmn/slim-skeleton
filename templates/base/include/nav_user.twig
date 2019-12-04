@@ -1,0 +1,25 @@
+<ul class="navbar-nav user-nav">
+  {% if auth.check %}
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      {{ auth.user.emailShort }}
+    </a>
+    <div class="dropdown-menu  dropdown-menu-right" aria-labelledby="navbarDropdown">
+      {% if template_name == 'public' %}
+      <a class="dropdown-item" href="{{ url_for('dashboard') }}">{{ "Dashboard"|trans }}</a>
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="#">{{ "Help"|trans }}</a>
+      {% else %}
+      <a class="dropdown-item home" href="{{ url_for('home') }}">{{ "Home"|trans }}</a>
+      {% endif %}
+      <div class="dropdown-divider"></div>
+      <a class="dropdown-item" href="{{ url_for('logout') }}">{{ "Logout"|trans }}</a>
+    </div>
+  </li>
+  {% else %}
+  <li class="nav-item">
+    <a class="nav-link" href="{{ url_for('login') }}" role="button">{{ "Login"|trans }}</a>
+  </li>
+  {% endif %}
+</ul>

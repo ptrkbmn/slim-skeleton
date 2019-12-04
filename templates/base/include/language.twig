@@ -1,0 +1,16 @@
+<ul class="navbar-nav language-nav">
+  <li class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+      <span class="flag-icon flag-icon-{{ LANG.flag }}"></span>
+      <span class="caret"></span>
+      <span class="sr-only">({{ LANG.label }})</span>
+    </a>
+    <div class="dropdown-menu dropdown-menu-right" style="min-width: auto;">
+      {% for l in LANGS %}
+      <a class="dropdown-item" href="{{ url_for('lang', {'code': l.code}) }}">
+        <span class="flag-icon flag-icon-{{ l.flag }}"></span>&nbsp;{{ l.label }}
+      </a>
+      {% endfor %}
+    </div>
+  </li>
+</ul>

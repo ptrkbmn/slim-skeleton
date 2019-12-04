@@ -15,7 +15,7 @@
         {
             "name": "Patrick Baumann",
             "email": "patrick@pbdev.de",
-            "homepage": "https://pbdev.de"
+            "homepage": "https://www.pbdev.de"
         }
     ],
     "autoload": {
@@ -28,16 +28,18 @@
         }
     },
     "require": {
-        "php": ">=7.1",
-        "slim/slim": "^4.2",
-        "slim/psr7": "^0.5.0",
-        "slim/flash": "^0.4.0",
-        "slim/twig-view": "^3.0@beta",
-        "php-di/php-di": "^6.0",
-        "monolog/monolog": "2.0.0-beta2",
+        "php": ">=7.3",
         "doctrine/orm": "^2",
-        "twig/extensions": "^1.5",
-        "maximebf/debugbar": "^1.15"
+        "maximebf/debugbar": "^1.15",
+        "monolog/monolog": "2.0.0-beta2",
+        "php-di/php-di": "^6.0",
+        "slim/csrf": "^1.0",
+        "slim/flash": "^0.4.0",
+        "slim/psr7": "^0.4.0",
+        "slim/slim": "^4.2",
+        "slim/twig-view": "^3.0@beta",
+        "tkhamez/slim-role-auth": "^2.0",
+        "twig/extensions": "^1.5"
     },
     "config": {
         "process-timeout": 0,

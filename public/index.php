@@ -9,10 +9,10 @@ use Slim\Factory\AppFactory;
 use Slim\Factory\ServerRequestCreatorFactory;
 
 // Set the absolute path to the root directory.
-$rootPath = realpath(__DIR__ . '/..');
+define("ROOT_PATH", realpath(__DIR__ . '/..'));
 
 // Include the composer autoloader.
-include_once($rootPath . '/vendor/autoload.php');
+include_once(ROOT_PATH . '/vendor/autoload.php');
 
 // Instantiate the debugbar
 $debug = new DebugBarWrapper(new StandardDebugBar());
@@ -22,32 +22,37 @@ $debug->start("booting", "Booting");
 $containerBuilder = new ContainerBuilder();
 
 // Set up settings
-$settings = require $rootPath . '/config/settings.php';
+$settings = require ROOT_PATH . '/config/settings.php';
 $settings($containerBuilder);
 
 // Set up dependencies
-$dependencies = require $rootPath . '/config/dependencies.php';
+$dependencies = require ROOT_PATH . '/config/dependencies.php';
 $dependencies($containerBuilder);
 
 // Set up factories
-$factories = require $rootPath . '/config/factories.php';
+$factories = require ROOT_PATH . '/config/factories.php';
 $factories($containerBuilder);
 
 // Build PHP-DI Container instance
 $container = $containerBuilder->build();
 $container->set("debugbar", $debug);
 
+// Include certain helper functions
+include_once(ROOT_PATH . '/config/helpers.php');
+
 $settings = $container->get('settings');
 
 // Instantiate the app
 $app = AppFactory::createFromContainer($container);
+$routeParser = $app->getRouteCollector()->getRouteParser();
+$container->set("routeParser", $routeParser);
 
 // Register middleware
-$middleware = require $rootPath . '/config/middleware.php';
+$middleware = require ROOT_PATH . '/config/middleware.php';
 $middleware($app, $debug);
 
 // Register routes
-$routes = require $rootPath . '/config/routes.php';
+$routes = require ROOT_PATH . '/config/routes.php';
 $routes($app);
 
 // Set the cache file for the routes. Note that you have to delete this file

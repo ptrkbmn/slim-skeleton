@@ -1,0 +1,26 @@
+{% extends 'base/public.twig' %}
+
+{% set page_title = "Sign up"|trans %}
+
+{% block breadcrumb_append %}
+<li class="breadcrumb-item active">{{ "Sign up"|trans }}</li>
+{% endblock %}
+
+{% block content %}
+<form action="{{ url_for('signup') }}" method="POST">
+    {% include 'include/csrf.twig' %}
+
+    <label for="email">{{ "Email address"|trans }}</label>
+    <div>
+        <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
+            placeholder="{{ "Enter email"|trans }}">
+        <small id="emailHelp" class="form-text text-muted">{{"We'll never share your email with anyone else."|trans }}
+        </small>
+    </div>
+    <label for="pswd">{{ "Password"|trans }}</label>
+    <div>
+        <input type="password" class="form-control" id="pswd" name="pswd" placeholder="{{ "Password"|trans }}">
+    </div>
+    <button type="submit" class="btn btn-primary">{{ "Submit"|trans }}</button>
+</form>
+{% endblock %}

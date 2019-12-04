@@ -5,9 +5,3 @@ This is a simple skeleton application that can be used to start working on a new
 ## Remarks
 
 Debugbar is setup to show booting, application and core times in the timeline view.
-
-The template uses the JavaScript and CSS libraries [JQuery](https://www.jquery.com/), [Bootstrap](https://www.getbootstrap.com/) and [Popper.js](https://popper.js.org/).
-
-## Preview
-
-![Preview](preview.png)

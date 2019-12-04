@@ -1,0 +1,14 @@
+{% if flash %}
+<div class="alert-container">
+  {% for k, f in flash.getMessages() %}
+  {% for m in f %}
+  <div class="alert alert-{{ k }} alert-dismissible fade show" role="alert">
+    {{ m }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+  {% endfor %}
+</div>
+{% endif %}
